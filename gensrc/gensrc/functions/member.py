@@ -72,7 +72,7 @@ class Member(function.Function):
         function.Function.postSerialize(self)
         
         # The 1st param of a Member function is always the ID of the object to be retrieved
-        parameterObjectId = parameter.MemberObjectId(self.type_, self.superType_)
+        parameterObjectId = parameter.MemberObjectId(self.type_, self.superType_, self.nameSpace_)
         self.parameterList_.prepend(parameterObjectId)
         self.memberAccess_ = parameterObjectId.fullType().memberAccess()
         self.objectId_ = parameterObjectId.nameConverted()

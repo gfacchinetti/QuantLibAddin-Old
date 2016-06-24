@@ -102,4 +102,7 @@ VECTOR = 'vector'
 VECTOR_ITERATOR = 'vectorIterator'
 VOID = 'void'
 XL_MACRO = 'xlMacro'
+BASECLASS = 'baseClass'
+NAMESPACE = 'nameSpace'
+
 

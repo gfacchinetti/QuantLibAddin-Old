@@ -82,11 +82,11 @@
 #pragma comment(lib, APR_LIB_NAME)
 #pragma comment(lib, APRUTIL_LIB_NAME)
 
-#ifdef BOOST_LIB_DIAGNOSTIC
-#  pragma message("Linking to lib file: " LOG4CXX_LIB_NAME)
-#  pragma message("Linking to lib file: " APR_LIB_NAME)
-#  pragma message("Linking to lib file: " APRUTIL_LIB_NAME)
-#endif
+//#ifdef BOOST_LIB_DIAGNOSTIC
+//#  pragma message("Linking to lib file: " LOG4CXX_LIB_NAME)
+//#  pragma message("Linking to lib file: " APR_LIB_NAME)
+//#  pragma message("Linking to lib file: " APRUTIL_LIB_NAME)
+//#endif
 
 #endif
 

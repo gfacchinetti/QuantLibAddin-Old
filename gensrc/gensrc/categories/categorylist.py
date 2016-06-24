@@ -63,10 +63,11 @@ class CategoryList(object):
     def __init__(self):
         """Initialize the CategoryList object."""
 
+        fileCategories = environment.Environment.instance().configuration().fileCategories()
         utilities.serializeList(environment.Environment.instance().coreConfigPath() +
             'config/categories', self, 'coreCategoryNames', 'categoryName')
         utilities.serializeList(environment.Environment.instance().addinConfigPath() +
-            'config/categories', self, 'addinCategoryNames', 'categoryName')
+            'config/' + fileCategories, self, 'addinCategoryNames', 'categoryName')
 
         self.coreCategoryNames_.sort()
         self.addinCategoryNames_.sort()

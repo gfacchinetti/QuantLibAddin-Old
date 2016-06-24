@@ -274,8 +274,7 @@
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
-				Name="VCLibrarianTool"
-				OutputFile=".\lib\log4cxxs-vc90-mt-0_10_0.lib"
+				Name="VCLinkerTool"
 			/>
 			<Tool
 				Name="VCALinkTool"

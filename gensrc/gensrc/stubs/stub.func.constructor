@@ -7,7 +7,7 @@
 
         // Construct the Object
         
-        boost::shared_ptr<ObjectHandler::Object> object(
+        boost::shared_ptr<%(baseClass)s> object(
             new %(namespaceObjects)s::%(libraryFunction)s(
                 valueObject,%(libraryParameters)s));
 

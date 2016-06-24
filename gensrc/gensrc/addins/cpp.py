@@ -72,13 +72,15 @@ class CppAddin(addin.Addin):
                 bufferHpp += self.generateDeclaration(func)
             self.bufferBody_.set({
                 'bufferCpp' : bufferCpp,
+                'namespaceObjects' : environment.config().namespaceObjects(),
                 'categoryIncludes' : categoryIncludes })
             self.bufferHeader_.set({
                 'categoryName' : cat.name(),
+                'namespaceObjects' : environment.config().namespaceObjects(),
                 'bufferHpp' : bufferHpp })
-            fileNameCpp = '%s%s.cpp' % ( self.rootPath_, cat.name())
+            fileNameCpp = '%scpp_%s.cpp' % ( self.rootPath_, cat.name())
             outputfile.OutputFile(self, fileNameCpp, cat.copyright(), self.bufferBody_)
-            fileNameHpp = '%s%s.hpp' % ( self.rootPath_, cat.name())
+            fileNameHpp = '%scpp_%s.hpp' % ( self.rootPath_, cat.name())
             outputfile.OutputFile(self, fileNameHpp, cat.copyright(), self.bufferHeader_)
         self.bufferAll_.append("\n")
         fileNameAll = '%saddincpp.hpp' % self.rootPath_

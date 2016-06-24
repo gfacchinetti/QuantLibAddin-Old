@@ -66,6 +66,19 @@ class EnumerationList(object):
         """Serve up enumerated pair objects alphabetically by name."""
         for key in self.enumeratedPairGroupKeys_:
             yield self.enumeratedPairGroups_[key]
+			
+    def update(self, configuration):
+        """Initialize the EnumerationList object and load enumeration parameters from
+        available config files."""
+        enumerateFile = configuration.enumeratedtypesFile()
+
+        xmlEnumTypes = xmlreader.XmlReader('metadata/enumerations/'+ enumerateFile )
+        xmlEnumTypes.serializeObjectDict(self, enumeratedtypes.EnumeratedTypeGroup)
+        xmlEnumTypes.serializeProperty(self, common.ENUM_TYPE_COPYRIGHT)
+        self.hasEnumeratedTypes = True
+        for item in self.enumeratedTypeGroups_.values():
+            self.typeDict_[item.type()] = item.includeFile()
+
 
     #############################################
     # private member functions
@@ -76,8 +89,9 @@ class EnumerationList(object):
         available config files."""
 
         self.typeDict_ = {}
-
-        if os.path.exists('metadata/enumerations/enumeratedtypes.xml'):
+        
+        enumerateFile = 'enumeratedtypes'
+        if os.path.exists('metadata/enumerations/' + enumerateFile + '.xml'):
             xmlEnumTypes = xmlreader.XmlReader('metadata/enumerations/enumeratedtypes')
             xmlEnumTypes.serializeObjectDict(self, enumeratedtypes.EnumeratedTypeGroup)
             xmlEnumTypes.serializeProperty(self, common.ENUM_TYPE_COPYRIGHT)

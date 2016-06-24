@@ -127,6 +127,7 @@ addin           unchanged   updated     created     total'''
         self.categoryList_ = categorylist.CategoryList()
         if environment.config().usingEnumerations():
             self.enumerationList_ = enumerationlist.EnumerationList()
+            self.enumerationList_.update(environment.config())
         else:
             self.enumerationList_ = None
         self.categoryList_.init(self.enumerationList_)

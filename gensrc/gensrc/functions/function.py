@@ -111,6 +111,16 @@ class Function(serializable.Serializable):
 
     def const(self):
         return self.const_
+        
+    def baseClass(self):
+        if self.baseClass_ is None:
+            ciccio = 'ObjectHandler::Object'
+        else:
+            ciccio = self.baseClass_
+        return ciccio
+   
+    def nameSpace(self):
+        return self.nameSpace_
 
     #############################################
     # serializer interface
@@ -120,6 +130,8 @@ class Function(serializable.Serializable):
         """Load/unload class state to/from serializer object."""
         serializer.serializeAttribute(self, common.NAME)
         serializer.serializeProperty(self, common.DESCRIPTION)
+        serializer.serializeProperty(self, common.BASECLASS)  
+        serializer.serializeProperty(self, common.NAMESPACE)      
         serializer.serializeProperty(self, common.LONG_DESC, self.description_)
         serializer.serializeObjectDict(self, supportedplatform.SupportedPlatform)
         serializer.serializeProperty(self, common.ALIAS, environment.config().namespaceObjects() + '::' + self.name_)

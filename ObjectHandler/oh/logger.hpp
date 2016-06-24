@@ -30,10 +30,11 @@
 // If the #include below fails, it means either that you have the wrong
 // version of log4cxx, or that your log4cxx installation (if any) cannot
 // be found at all.
-#include <log4cxx/log4cxxdefines.h>
-#if LOG4CXX_VERSION != 0x001000f6
-    #error using an incorrect version of log4cxx, please update.
-#endif
+//#include <log4cxx/log4cxxdefines.h>
+//#if LOG4CXX_VERSION != 0x001000f6
+//    #error using an incorrect version of log4cxx, please update.
+//#endif
+
 
 #include <log4cxx/logger.h>
 #include <log4cxx/simplelayout.h>
